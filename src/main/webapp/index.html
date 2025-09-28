@@ -3,25 +3,37 @@
     <head>
         <title>&Iacute;ndice</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     </head>
+    <header>
+        <h1>→ &Iacute;NDICE DE EJERCICIOS</h1>
+    </header>
     <body>
-        <h1>&Iacute;ndice de ejercicios</h1>
-        <!--<a href="adios/adios.html">👋</a>-->
-        <p>
-            Primera llamada a un Servlet. Pulsa <a href="Entrada">aqu&iacute;</a>
-        </p>
-        <p>
-            Llamada a un servlet pasando par&aacute;metros. Pulsa <a href="Entrada?param1=Hola&param2=Mundo">aqu&iacute;</a>
-        </p>
-        <p>
-        <form action="Entrada" method="post">
-            <label for="nb">Nombre</label>
-            <input type="text" name="nombre" id="nb" placeholder="Ej. Juan"><br>
-            <label for="ap">Apellidos</label>
-            <input type="text" name="apellidos" id="ap" placeholder="Ej. Pascual"><br>
-            <input type="submit">
-        </form>
-        </p>
-    </body>
+        <div class="contenedor">
+            <div class="columna" id="columna1">
+                <h2>Servlets</h2>
+                <a href="html/adios.html" class="tarjeta">1. ¡Hola Mundo!</a>
+                <details>
+                    <summary class="tarjeta">2. Llamada a un Servlet</summary>
+                    <ul class="desplegable">
+                        <li>Primera llamada a un Servlet. Pulsa <a class="enlace" href="Entrada">aqu&iacute;</a></li>
+                        <li>Llamada a un servlet pasando par&aacute;metros. Pulsa <a class="enlace" href="Entrada?param1=Hola&param2=Mundo">aqu&iacute;</a></li>
+                    </ul>
+                </details>
+                <a href="html/formularioSimple.html" class="tarjeta">3. Formulario simple</a>
+
+            </div>
+            <div class="columna" id="columna2">
+                <h2>JavaServer Pages (JSP)</h2>
+                <a href="" class="tarjeta">1. Ejercicio 1</a>
+                <a href="" class="tarjeta">2. Ejercicio 2</a>
+                <a href="" class="tarjeta">3. Ejercicio 3</a>
+            </div>
+        </div>
+        
+</body>
+<footer>
+    <p>Gloria Curado García ©</p>
+</footer>
 </html>
- 

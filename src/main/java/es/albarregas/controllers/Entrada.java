@@ -42,14 +42,14 @@ public class Entrada extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Entrada</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">\n");
+            out.println("<link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">");
             out.println("</head>");
             out.println("<body>");
 //            request.getContextPath() devuelve el contexto de la aplicación (/CuradoGGInicial)
             out.println("<h1>Servlet Entrada at " + request.getContextPath() + "</h1>");
 //            request.getMethod() devuelve el método HTTP usado (GET, en este caso)
             out.println("<h2>M&eacute;todo de llamada es " + request.getMethod() + "</h2>");
-//            Crea un link que apunta al directorio actual (.), básicamente "volver al inicio"
-            out.println("<a href=\".\">Volver</a>");
 
             Enumeration<String> parametroStr = request.getParameterNames();
 //            Enumera todos los nombres de parámetros que venían en la URL
@@ -62,10 +62,12 @@ public class Entrada extends HttpServlet {
                 while (parametroStr.hasMoreElements()) {
                     String nombreParametro = parametroStr.nextElement();
                     String valorParametro = request.getParameter(nombreParametro);
-                    out.println("<p>Nombre par&aacute;metro: " + nombreParametro + ", Valor par&aacute;metro: " + valorParametro + "</p>");
+                    out.println("<p>Nombre par&aacute;metro: <strong>" + nombreParametro + "</strong>, Valor par&aacute;metro: <strong>" + valorParametro + "</strong></p>");
                 }
             }
-
+            //            Crea un link que apunta al directorio actual (.), básicamente "volver al inicio"
+            out.println("<a class= \"enlace\" href=\".\">Volver</a>");
+            
             out.println("</body>");
             out.println("</html>");
         }
@@ -91,14 +93,16 @@ public class Entrada extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Entrada</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\">\n");
+            out.println("<link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">");
             out.println("</head>");
             out.println("<body>");
 //            request.getContextPath() devuelve el contexto de la aplicación (/CuradoGGInicial)
             out.println("<h1>Servlet Entrada at " + request.getContextPath() + "</h1>");
 //            request.getMethod() devuelve el método HTTP usado (GET, en este caso)
             out.println("<h2>M&eacute;todo de llamada es " + request.getMethod() + "</h2>");
-//            Crea un link que apunta al directorio actual (.), básicamente "volver al inicio"
-            out.println("<a href=\".\">Volver</a>");
+//            
+           
 
             Enumeration<String> parametroStr = request.getParameterNames();
 //            Enumera todos los nombres de parámetros que venían en la URL
@@ -111,6 +115,8 @@ public class Entrada extends HttpServlet {
                 out.println("<p>Nombre par&aacute;metro: " + nombreParametro + ", Valor par&aacute;metro: " + valorParametro + "</p>");
 
             }
+            
+            out.println("<a class=\"enlace\" href=\".\">Volver</a>");
 
             out.println("</body>");
             out.println("</html>");
