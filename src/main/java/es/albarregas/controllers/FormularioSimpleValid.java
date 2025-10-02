@@ -50,22 +50,22 @@ public class FormularioSimpleValid extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             //Enumeramos los parámetros del formulario
             Enumeration<String> nombresParametros = request.getParameterNames();
-            
+
             //Mapeamos siendo los nombres de parámetros la key y los valores los values
             Map<String, String[]> mapaParametros = request.getParameterMap();
-            
+
             //Creamos un ArrayList donde vamos a guardar todos los parámetros sin valor
             ArrayList<String> nulos = new ArrayList<>();
 
             for (Map.Entry<String, String[]> entry : mapaParametros.entrySet()) {
                 String nombreParametro = entry.getKey();
                 String[] valorParametro = entry.getValue();
-                
+
                 //Si el campo no es preferencias y está vacío, se añade al ArrayList nulos
-                if (!nombreParametro.equals("preferencias")) {
+                if (!nombreParametro.equals("Preferencias")) {
                     for (String valor : valorParametro) {
                         if (valor.trim().equals("")) {
                             nulos.add(nombreParametro);
@@ -73,10 +73,10 @@ public class FormularioSimpleValid extends HttpServlet {
                     }
                 }
             }
-            
+
             //Iniciamos el HTML
             out.println(pintarCabeceraHTML("Formulario Simple con Validaciones", "css/style.css"));
-            
+
             //Si el ArrayList nulos NO está vacío, pedimos rellenar estos campos vacíos y además recordaremos los llenos
             if (!nulos.isEmpty()) {
                 //Lanzamos alerta de campos obligatorios
@@ -88,51 +88,51 @@ public class FormularioSimpleValid extends HttpServlet {
                     String parametro = nombresParametros.nextElement();
                     String valor = mapaParametros.get(parametro)[0];
                     boolean vacio = nulos.contains(parametro);
-                    
+
                     //En cada caso comprobamos si está vacío o no e imprimimos en consecuencia
                     switch (parametro) {
-                        case "nombre":
+                        case "Nombre":
                             out.println("<label for=\"nb\">Nombre</label><br>");
                             if (vacio) {
                                 //Si está vacio imprime campo vacío y con bordes rojos
-                                out.println("<input class=\"vacio\" type=\"text\" name=\"nombre\" id=\"nb\" placeholder=\"Ej. Juan\"><br>");
+                                out.println("<input class=\"vacio\" type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\"><br>");
                             } else {
                                 //Si está lleno recuerda el valor con "value="valor""
-                                out.println("<input type=\"text\" name=\"nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""
+                                out.println("<input type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""
                                         + valor + "\"><br>");
                             }
                             break;
-                        case "fechaNacimiento":
+                        case "Fecha_de_nacimiento":
                             out.println("<label for=\"dt\">Fecha de nacimiento</label><br>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"date\" name=\"fechaNacimiento\" id=\"dt\"><br>");
+                                out.println("<input class=\"vacio\" type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\"><br>");
                             } else {
-                                out.println("<input type=\"date\" name=\"fechaNacimiento\" id=\"dt\" value=\""
+                                out.println("<input type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\" value=\""
                                         + valor + "\"><br>");
                             }
                             break;
-                        case "salario":
+                        case "Salario":
                             out.println("<label for=\"sal\">Salario</label><br>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"number\" name=\"salario\" step=\"0.01\" id=\"sal\"><br>");
+                                out.println("<input class=\"vacio\" type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\"><br>");
                             } else {
-                                out.println("<input type=\"number\" name=\"salario\" step=\"0.01\" id=\"sal\" value=\""
+                                out.println("<input type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\" value=\""
                                         + valor + "\"><br>");
                             }
                             break;
-                        case "hijos":
-                            out.println("<label for=\"hj\">N&uacute;mero de hijos</label><br>");
+                        case "Hijos":
+                            out.println("<label for=\"hj\">Hijos</label><br>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"number\" name=\"hijos\" id=\"hj\"><br>");
+                                out.println("<input class=\"vacio\" type=\"number\" name=\"Hijos\" id=\"hj\"><br>");
                             } else {
-                                out.println("<input type=\"number\" name=\"hijos\" id=\"hj\" value=\""
+                                out.println("<input type=\"number\" name=\"Hijos\" id=\"hj\" value=\""
                                         + valor + "\"><br>");
                             }
                             break;
                     }
 
                 }
-                
+
                 //Las preferencias no se guardan, las imprimimos como siempre
                 out.println(pintarPreferencias());
 
@@ -142,14 +142,14 @@ public class FormularioSimpleValid extends HttpServlet {
                 out.println("<br>");
 
             } else {
-                
+
                 //Si el ArrayList nulos está vacío quiere decir que todo está ok, así que mostramos resultados
                 while (nombresParametros.hasMoreElements()) {
-                    String parametro = nombresParametros.nextElement(); 
+                    String parametro = nombresParametros.nextElement();
                     String[] valores = request.getParameterValues(parametro);
-                    
+
                     //Se hace distinción para las preferencias porque si no hay no se imprimen
-                    if (parametro.equals("preferencias")) {
+                    if (parametro.equals("Preferencias")) {
                         if (valores != null && valores.length > 0) {
                             out.println("<h2>Preferencias</h2>");
                             out.println("<ul>");
@@ -158,20 +158,19 @@ public class FormularioSimpleValid extends HttpServlet {
                             }
                             out.println("</ul><br>");
                         }
+                    } else if (parametro.equals("Fecha_de_nacimiento")) {
+                        // Si es fecha, la formateamos
+                        String nombreParametro = parametro.replace('_', ' ');
+                        out.println("<h2>" + nombreParametro + "</h2>");
+                        LocalDate fecha = LocalDate.parse(valores[0]);
+                        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        out.println("<p>" + fecha.format(formato) + "</p><br>");
                     } else {
-                        
                         //Impresión de los demás campos
                         out.println("<h2>" + parametro + "</h2>");
-
-                        // Si es fecha, la formateamos
-                        if (parametro.equals("fechaNacimiento")) {
-                            LocalDate fecha = LocalDate.parse(valores[0]);
-                            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                            out.println("<p>" + fecha.format(formato) + "</p><br>");
-                        } else {
-                            out.println("<p>" + valores[0] + "</p><br>");
-                        }
+                        out.println("<p>" + valores[0] + "</p><br>");
                     }
+
                 }
             }
 
@@ -192,7 +191,7 @@ public class FormularioSimpleValid extends HttpServlet {
 
     private String pintarPreferencias() {
         return "<label for=\"preferencias\">Preferencias</label><br>\n"
-                + "<select name=\"preferencias\" id=\"preferencias\" multiple>\n"
+                + "<select name=\"Preferencias\" id=\"preferencias\" multiple>\n"
                 + "<option value=\"Leer\">Leer</option>\n"
                 + "<option value=\"Nadar\">Nadar</option>\n"
                 + "<option value=\"Dormir\">Dormir</option>\n"
