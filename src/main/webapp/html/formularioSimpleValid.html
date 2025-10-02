@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="es">
+    <head>
+        <title>Formulario Simple con Validaciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <h1>Formulario Simple con Validaciones</h1><br>
+        <div class="formulario">
+            <form action="../FormularioSimpleValid" method="post">
+                <label for="nb">Nombre</label><br>
+                <input type="text" name="nombre" id="nb" placeholder="Ej. Juan"><br>
+                <label for="dt">Fecha de nacimiento</label><br>
+                <input type="date" name="fechaNacimiento" id="dt"><br>
+                <label for="sal">Salario</label><br>
+                <input type="number" name="salario" step="0.01" id="sal"><br>
+                <label for="hj">N&uacute;mero de hijos</label><br>
+                <input type="number" name="hijos" id="hj"><br>
+                <label for="preferencias">Preferencias</label><br>
+                <select name="preferencias" id="preferencias" multiple>
+                    <option value="Leer">Leer</option>
+                    <option value="Nadar">Nadar</option>
+                    <option value="Dormir">Dormir</option>
+                    <option value="Bailar">Bailar</option>
+                </select>
+                <br>
+                <input class="botonEnviar" type="submit">
+            </form>
+        </div>
+        <br>
+        <a class="enlace" href="../index.html">Volver</a>
+    </body>
+</html>

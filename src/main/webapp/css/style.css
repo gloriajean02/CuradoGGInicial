@@ -34,7 +34,7 @@ body {
     display: flex;
     gap: 40px;
     justify-content: center; /* Centrado horizontal */
-    align-items: center;     /* Centrado vertical */
+    align-items: start;     /* Centrado vertical */
 }
 
 /* Cada columna */
@@ -102,6 +102,7 @@ ul.desplegable li {
 
 .formulario {
     display: flex;
+    flex-direction: column;
     width: fit-content;
     border: #e9b7ff solid 2px;
     border-radius: 5px;
@@ -118,6 +119,16 @@ ul.desplegable li {
     padding: 5px 10px 5px 10px;
 }
 
+option {
+    color: black;
+}
+
+.vacio {
+    border: 2px solid red; 
+}
+
+
+
 .botonEnviar {
     background-color:#b9d440;
     border: none;
@@ -130,6 +141,10 @@ ul.desplegable li {
 
 .botonEnviar:hover {
     transform: scale(1.02);
+}
+
+.alerta {
+    color: red;
 }
 
 footer {
