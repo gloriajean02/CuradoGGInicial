@@ -1,10 +1,22 @@
 #Readme
 # Actividad Inicial - Módulo Desarrollo Web en Entorno Servidor
-
-## Introducción
 Actividad en proceso de desarrollo como estudiante de **2º DAW A** en el **IES Albarregas**.  
-El objetivo es hacer un proyecto de clase usando tecnologías web del lado del servidor.
 
 ## Descripción del Proyecto
 Se trata de una **aplicación web** desarrollada en **NetBeans**, usando **Java**, **HTML** y **CSS**.  
 En ella vamos a trabajar con **Servlets**, **JSP**, la **Librería JSTL**, **Etiquetas personalizadas** y **Listeners**.
+
+## Fases del Proyecto
+
+### Fase 1: Servlets
+En esta fase estamos implementando **la lógica del lado del servidor** usando Servlets en Java.  
+Se han realizado los siguientes desarrollos:
+
+- **Hola Mundo y Adiós Mundo**: creación de servlets básicos que muestran mensajes simples en el navegador.  
+- **Llamada a un servlet por POST y por GET**: práctica de manejo de métodos HTTP y obtención de parámetros desde formularios.  
+- **Formulario Simple**: creación de un formulario HTML y envío de datos a un servlet.  
+- **Formulario Simple con Validaciones**: implementación de comprobaciones básicas para asegurar que los campos requeridos no estén vacíos.  
+- **Formulario Simple con Validaciones y Pantalla Intermedia**: mejora del formulario para mostrar una pantalla intermedia cuando hay errores, permitiendo al usuario corregir los datos antes de enviarlos definitivamente.
+
+
+
