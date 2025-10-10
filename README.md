@@ -8,8 +8,7 @@ En ella vamos a trabajar con **Servlets**, **JSP**, la **Librería JSTL**, **Eti
 
 ## Fases del Proyecto
 
-### Fase 1: Servlets
-En esta fase estamos implementando **la lógica del lado del servidor** usando Servlets en Java.  
+### Fase 1: Servlets 
 Se han realizado los siguientes desarrollos:
 
 - **Hola Mundo y Adiós Mundo**: creación de servlets básicos que muestran mensajes simples en el navegador.  
@@ -18,5 +17,8 @@ Se han realizado los siguientes desarrollos:
 - **Formulario Simple con Validaciones**: implementación de comprobaciones básicas para asegurar que los campos requeridos no estén vacíos.  
 - **Formulario Simple con Validaciones y Pantalla Intermedia**: mejora del formulario para mostrar una pantalla intermedia cuando hay errores, permitiendo al usuario corregir los datos antes de enviarlos definitivamente.
 
+### Fase 2: Java Server Pages 
+Se han realizado los siguientes desarrollos:
+- **Saludar**: desarrollo de una nueva funcionalidad en JSP para saludar según datos introducidos por parámetros mediante un formulario y según la hora del día.
 
 
