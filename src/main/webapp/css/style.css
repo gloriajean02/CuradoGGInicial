@@ -29,6 +29,10 @@ body {
     height: 100vh;
 }
 
+h1 {
+    margin-bottom: 10px;
+}
+
 
 .contenedor {
     display: flex;
@@ -98,6 +102,8 @@ ul.desplegable li {
     color: #b9d440;
     font-weight: 200;
     text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
 }
 
 .formulario {
@@ -109,7 +115,6 @@ ul.desplegable li {
     align-items: center;
     justify-content: center;
     padding: 30px;
-
 }
 
 .formulario input {
