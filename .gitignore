@@ -59,5 +59,4 @@ dist/
 nbdist/
 .nb-gradle/
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,java,netbeans
-src/.DS_Store
+
