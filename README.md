@@ -20,5 +20,7 @@ Se han realizado los siguientes desarrollos:
 ### Fase 2: Java Server Pages 
 Se han realizado los siguientes desarrollos:
 - **Saludar**: desarrollo de una nueva funcionalidad en JSP para saludar según datos introducidos por parámetros mediante un formulario y según la hora del día.
+- **Edad**: implementación de un formulario que obtiene por parámetros un nombre y una fecha de nacimiento para calcular cuánto tiempo falta para tu cumpleaños.
+- **Calculadora**: calculadora básica con suma, resta, multiplicación y división que imprime el resultado junto a la fecha de hoy. Además controla divisiones por cero y errores NaN.
 
 
