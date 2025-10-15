@@ -158,3 +158,22 @@ footer {
     font-weight: 200;
     padding: 60px;
 }
+
+#tablaNumSecreto {
+    width: 70%;
+    margin: 5%;
+    text-align: center;
+    background:#e9b7ff;
+    border-radius: 10px;
+    overflow: hidden;
+    border-collapse: collapse; /* mantener colapsado */
+}
+
+#tablaNumSecreto td {
+    color: black;
+    padding: 10px;
+    border: 2px solid #4a3da5; /* un solo borde visible */
+}
+
+
+
