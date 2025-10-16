@@ -58,15 +58,41 @@
                         }
                         intentos += numeroINT;
                     }                    
-                }                                
+                }
+                
+                //Establecemos los valores iniciales de mínimo y máximo
+                int min = 1;
+                int max = 100;
+                
+                //Si hay intentos, recorremos los intentos separando por las comas
+                if (!intentos.isEmpty()) {
+                    String[] listaIntentos = intentos.split(", ");
+                    for (String intento : listaIntentos) {
+                        int intentoINT = Integer.parseInt(intento);
+                        //Si el intento es mayor al num secreto y menor al máximo, acotamos el max a este intento - 1
+                        if (intentoINT > numeroSecreto && intentoINT - 1 < max) {
+                            max = intentoINT - 1;
+                        }
+                        //Si el intento es menor al num secreto y mayor al mínimo, acotamos el min a este intento + 1
+                        if (intentoINT < numeroSecreto && intentoINT + 1 > min) {
+                            min = intentoINT + 1;
+                        }
+                    }
+                }
+
+                
             %>
             
             <form method="post" action="../jsp/numeroSecreto.jsp">
 <!--                Tanto numeroSecreto como intentos se irán guardando en estos inputs ocultos del form-->
                 <input type="hidden" name="intentos" value="<%= intentos %>">
                 <input type="hidden" name="numeroSecreto" value="<%= numeroSecreto%>">
+<!--                También nos enviaremos el valor actual de min y max por parámetro oculto-->
+                <input type="hidden" name="min" value="<%= min%>">
+                <input type="hidden" name="max" value="<%= max%>">
                 <p><em>El ordenador "piensa" un n&uacute;mero y tenemos que averiguarlo en la menor cantidad de intentos posible.</em></p><br>
-                <label>Introduce un n&uacute;mero del 1 al 100: <input type="number" name="numero" min="1" max="100"></label><br>
+<!--                Establecemos los min y max con las variables anteriores-->
+                <label>Introduce un n&uacute;mero del <%= min%> al <%= max%>: <input type="number" name="numero" min="<%= min%>" max="<%= max%>"></label><br>
                     <%
                         if (!acierto) {
                     %>
@@ -91,10 +117,7 @@
                     </tr>
                 <%
                 //Sacamos un Array de intentos dividiendolos por las ,
-                String[] listaIntentos = intentos.split(", ");
-                
-                int min = 1;
-                int max = 100;
+                String[] listaIntentos = intentos.split(", ");                                
                 
                 //Recorremos el array para imprimir la tabla
                 for (String intento : listaIntentos) {
@@ -104,21 +127,11 @@
                 <tr>
                     <td><%= intentoINT%></td>
                 <%
-                    if (intentoINT > numeroSecreto){
-                        
-                        //Si el intento es menor que el máximo establecido, actualizamos el máximo
-                        if (intentoINT < max) {
-                            max = intentoINT - 1;
-                        }                        
+                    if (intentoINT > numeroSecreto){                                              
                     %>
                     <td>El n&uacute;mero secreto es menor. Est&aacute; entre <%= min%> y <%= max%>.</td>
                     <%    
                     } else if (intentoINT < numeroSecreto) {
-                        
-                        //Si el intento es mayor que el mínimo establecido, actualizamos el mínimo
-                        if (intentoINT > min) {
-                            min = intentoINT + 1;
-                        }
                     %>
                     <td>El n&uacute;mero secreto es mayor. Est&aacute; entre <%= min%> y <%= max%>.</td>
                     <%    
