@@ -149,7 +149,12 @@ option {
 }
 
 .alerta {
+    background:lightpink;
     color: red;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px;
+    margin: 10px;
 }
 
 footer {
@@ -167,8 +172,16 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     border-collapse: collapse; /* mantener colapsado */
+    border: 2px solid #4a3da5; /* un solo borde visible */
+    color:#4a3da5;
 }
-
+#tablaNumSecreto th {
+    background: white;
+    color:#4a3da5;
+    font-weight: bold;
+    padding: 10px;
+    
+}
 #tablaNumSecreto td {
     color: black;
     padding: 10px;

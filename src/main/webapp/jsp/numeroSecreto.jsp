@@ -74,7 +74,7 @@
                 <%
                 } else {
                 %>
-                <a class="enlace" href="<%= request.getContextPath()%>">Volver</a>
+                <input type="button" class="botonEnviar" name="enviar" value="Inicio" onclick="window.location.href='<%= request.getContextPath() %>'">
                 <%
                     }
                 %>
@@ -85,24 +85,42 @@
               if (!intentos.isEmpty()) {
                 %>
                 <table id="tablaNumSecreto">
+                    <tr>
+                        <th>N&uacute;mero</th>
+                        <th>Mensaje</th>
+                    </tr>
                 <%
                 //Sacamos un Array de intentos dividiendolos por las ,
                 String[] listaIntentos = intentos.split(", ");
                 
+                int min = 1;
+                int max = 100;
+                
                 //Recorremos el array para imprimir la tabla
                 for (String intento : listaIntentos) {
                     int intentoINT = Integer.parseInt(intento);
+                     
                 %>
                 <tr>
-                    <td><%= intento%></td>
+                    <td><%= intentoINT%></td>
                 <%
                     if (intentoINT > numeroSecreto){
+                        
+                        //Si el intento es menor que el máximo establecido, actualizamos el máximo
+                        if (intentoINT < max) {
+                            max = intentoINT - 1;
+                        }                        
                     %>
-                    <td>El n&uacute;mero secreto es menor</td>
+                    <td>El n&uacute;mero secreto es menor. Est&aacute; entre <%= min%> y <%= max%>.</td>
                     <%    
                     } else if (intentoINT < numeroSecreto) {
+                        
+                        //Si el intento es mayor que el mínimo establecido, actualizamos el mínimo
+                        if (intentoINT > min) {
+                            min = intentoINT + 1;
+                        }
                     %>
-                    <td>El n&uacute;mero secreto es mayor</td>
+                    <td>El n&uacute;mero secreto es mayor. Est&aacute; entre <%= min%> y <%= max%>.</td>
                     <%    
                     } else {
                     %>

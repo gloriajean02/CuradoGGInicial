@@ -3,7 +3,6 @@
 <%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ page import="java.util.Calendar" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -99,8 +98,7 @@
                         <td><input type="submit" class="botonEnviar"></td>
                         <td><input type="reset" class="botonEnviar"></td>
                     </tr>
-                </table>
-                
+                </table>                
             </form>
         </div>
         <br><br>
