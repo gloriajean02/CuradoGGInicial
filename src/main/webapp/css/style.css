@@ -23,7 +23,7 @@ header {
 
 
 body {
-    background-color: #4a3da5;
+    background-color:#4a3da5;
     margin: 0;
     padding: 60px;
     height: 100vh;
@@ -115,6 +115,7 @@ ul.desplegable li {
     align-items: center;
     justify-content: center;
     padding: 30px;
+    
 }
 
 .formulario input {
