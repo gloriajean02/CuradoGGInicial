@@ -105,13 +105,13 @@ public class FormularioSimpleVPI extends HttpServlet {
                 
             //Si hay campos vacíos y la bandera de corrección está activa, se abre el formulario de
             //corrección con campos recordados
-            } else if (campoVacio && formularioCorreccion) {
-                //Mensaje de alerta
-                out.println("<p class=\"alerta\">Los campos son obligatorios</p>");
-                
+            } else if (campoVacio && formularioCorreccion) {                
                 //Imprimimos formulario
                 out.println("<div class=\"formulario\">");
+                                //Mensaje de alerta
+                out.println("<p class=\"alerta\">Los campos son obligatorios</p>");
                 out.println("<form action=\"FormularioSimpleVPI\" method=\"post\">");
+                out.println("<table>");
 
                 Enumeration<String> parametrosRecordados = request.getParameterNames();
                 while (parametrosRecordados.hasMoreElements()) {
@@ -129,31 +129,31 @@ public class FormularioSimpleVPI extends HttpServlet {
                     switch (parametro) {
 
                         case "Nombre":
-                            out.println("<label for=\"nb\">" + parametroEspaciado + "</label><br>");
-                            out.println("<input type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""+valorActual+"\"><br>");
+                            out.println("<tr>\n<td><label for=\"nb\">" + parametroEspaciado + "</label></td>");
+                            out.println("<td><input type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""+valorActual+"\"></td>\n</tr>");
                             break;
 
                         case "Fecha_de_nacimiento":
-                            out.println("<label for=\"dt\">" + parametroEspaciado + "</label><br>");
-                            out.println("<input type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\" value=\""+valorActual+"\"><br>");
+                            out.println("<tr>\n<td><label for=\"dt\">" + parametroEspaciado + "</label></td>");
+                            out.println("<td><input type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\" value=\""+valorActual+"\"></td>\n</tr>");
                             break;
 
                         case "Salario":
-                            out.println("<label for=\"sal\">" + parametroEspaciado + "</label><br>");
-                            out.println("<input type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\" value=\""+valorActual+"\"><br>");
+                            out.println("<tr>\n<td><label for=\"sal\">" + parametroEspaciado + "</label></td>");
+                            out.println("<td><input type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\" value=\""+valorActual+"\"></td>\n</tr>");
                             break;
 
                         case "Hijos":
-                            out.println("<label for=\"hj\">" + parametroEspaciado + "</label><br>");
-                            out.println("<input type=\"number\" name=\"Hijos\" id=\"hj\" value=\""+valorActual+"\"><br>");
+                            out.println("<tr>\n<td><label for=\"hj\">" + parametroEspaciado + "</label></td>");
+                            out.println("<td><input type=\"number\" name=\"Hijos\" id=\"hj\" value=\""+valorActual+"\"></td>\n</tr>");
                             break;
 
                     }
                 }
                 
                 //Tratamos las preferencias por separado porque cuando no se selecciona ninguna el enumeration no las detecta
-                out.println("<label for=\"preferencias\">Preferencias</label><br>");
-                out.println("<select name=\"Preferencias\" id=\"preferencias\" multiple>");
+                out.println("<tr>\n<td><label for=\"preferencias\">Preferencias</label></td>");
+                out.println("<td><select name=\"Preferencias\" id=\"preferencias\" multiple>");
 
                 String[] opciones = {"Leer", "Nadar", "Dormir", "Bailar"};
 
@@ -180,9 +180,11 @@ public class FormularioSimpleVPI extends HttpServlet {
                     }
                 }
 
-                out.println("</select><br>");
+                out.println("</select></td>\n</tr>");
+                out.println("</table>");
 
                 out.println("<input class=\"botonEnviar\" type=\"submit\">");
+                out.println("<input type=\"button\" class=\"botonVolver\" name=\"volver\" value=\"Volver al inicio\" onclick=\"window.location.href='index.html'\">");
                 out.println("</form>");
                 out.println("</div>");
                 out.println("<br>");
@@ -202,7 +204,7 @@ public class FormularioSimpleVPI extends HttpServlet {
 
                     //Si hay un parámetro con varias opciones, solo lo mostramos si hay valores seleccionados
                     if (valoresParametro.length > 1) {
-                        out.println("<h2>" + nombreParametroEspaciado + "</h2>");
+                        out.println("<p>" + nombreParametroEspaciado + "</p>");
                         out.println("<ul>");
                         for (String valor : valoresParametro) {
                             out.println("<li>" + valor + "</li>");
@@ -216,18 +218,18 @@ public class FormularioSimpleVPI extends HttpServlet {
                             LocalDate fecha = LocalDate.parse(valor);
                             String fechaFormateada = fecha.format(formatoFecha);
 
-                            out.println("<h2>" + nombreParametroEspaciado + "</h2>");
+                            out.println("<p>" + nombreParametroEspaciado + "</p>");
                             out.println("<p>" + fechaFormateada + "</p>");
                         } catch (DateTimeParseException e) {
                             // Si no era fecha, lo mostramos tal cual
-                            out.println("<h2>" + nombreParametroEspaciado + "</h2>");
+                            out.println("<p>" + nombreParametroEspaciado + "</p>");
                             out.println("<p>" + valor + "</p>");
                         }
                     }
                 }
+                out.println("<a class=\"enlace\" href=\"index.html\">Volver</a>");
             }
-
-            out.println("<a class=\"enlace\" href=\"index.html\">Volver</a>");
+            
             out.println("</body>");
             out.println("</html>");
         }

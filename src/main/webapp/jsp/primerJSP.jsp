@@ -18,23 +18,26 @@
         <%
         if (request.getParameter("switch") == null) {
         %>
-        <form method="post" action="primerJSP.jsp" >
-            <input type="hidden" name="switch" value="true">
-            <table>
-                <tr>
-                    <td>Primer número:</td>
-                    <td><input name="param1"></td>
-                </tr>
-                <tr>
-                    <td>Segundo número:</td>
-                    <td><input name="param2"></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" class="botonEnviar" value="Sumar"></td>
-                </tr>
-            </table>
-        </form>
-        <a class="enlace" href="../index.html">Volver</a>
+        <h1>Mi primer JSP</h1>
+        <div class="formulario">
+            <form method="post" action="primerJSP.jsp" >
+                <input type="hidden" name="switch" value="true">
+                <table>
+                    <tr>
+                        <td>Primer número:</td>
+                        <td><input name="param1"></td>
+                    </tr>
+                    <tr>
+                        <td>Segundo número:</td>
+                        <td><input name="param2"></td>
+                    </tr>
+                </table>
+                <input type="submit" class="botonEnviar" value="Sumar">
+                <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='<%=request.getContextPath()%>'">
+            </form>
+        </div>
+
+        
         <%
         } else {
             try {

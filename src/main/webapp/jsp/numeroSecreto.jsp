@@ -100,7 +100,7 @@
                 <%
                 } else {
                 %>
-                <input type="button" class="botonEnviar" name="enviar" value="Inicio" onclick="window.location.href='<%= request.getContextPath() %>'">
+                <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='<%= request.getContextPath() %>'">
                 <%
                     }
                 %>

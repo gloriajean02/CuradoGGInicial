@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/style.css">
     </head>
     <body>
-        <h1>Saludar</h1><br>
+        <h1>Saludar</h1>
         <%
             String nombre = request.getParameter("nombre");
             String sexo = request.getParameter("sexo");

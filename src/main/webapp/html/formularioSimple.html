@@ -16,14 +16,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <h1>Formulario Simple</h1><br>
         <div class="formulario">
             <form action="../FormularioSimple" method="post">
-                <label for="nb">Nombre</label><br>
-                <input type="text" name="nombre" id="nb" placeholder="Ej. Juan" required><br>
-                <label for="dt">Fecha de nacimiento</label><br>
-                <input type="date" name="fechaNacimiento" id="dt" required><br>
-                <label for="sal">Salario</label><br>
-                <input type="number" name="salario" step="0.01" id="sal" required><br>
-                <label for="hj">N&uacute;mero de hijos</label><br>
-                <input type="number" name="hijos" id="hj" required><br>
+                <table>
+                    <tr>
+                        <td><label for="nb">Nombre</label></td>
+                        <td><input type="text" name="nombre" id="nb" placeholder="Ej. Juan" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dt">Fecha de nacimiento</label></td>
+                        <td><input type="date" name="fechaNacimiento" id="dt" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sal">Salario</label></td>
+                        <td><input type="number" name="salario" step="0.01" id="sal" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="hj">N&uacute;mero de hijos</label></td>
+                        <td><input type="number" name="hijos" id="hj" required></td>
+                    </tr>
+                </table><br>
                 <label>Preferencias</label><br>
                 <label><input type="checkbox" name= "preferencias" value="Leer">Leer</label>
                 <label><input type="checkbox" name= "preferencias" value="Nadar">Nadar</label>
@@ -31,9 +41,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <label><input type="checkbox" name= "preferencias" value="Bailar">Bailar</label><br>
                 <br>
                 <input class="botonEnviar" type="submit">
+                <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='../index.html'">
             </form>
         </div>
-        <br>
-        <a class="enlace" href="../index.html">Volver</a>
     </body>
 </html>

@@ -94,14 +94,11 @@
                         <td><input type="radio" name= "operacion" value="*">Multiplicar</td>
                         <td><input type="radio" name= "operacion" value="/">Dividir</td>
                     </tr>
-                    <tr>
-                        <td><input type="submit" class="botonEnviar"></td>
-                        <td><input type="reset" class="botonEnviar"></td>
-                    </tr>
-                </table>                
+                </table>
+                <input type="submit" class="botonEnviar">
+                <input type="reset" class="botonEliminar">
+                <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='<%=request.getContextPath()%>'">                
             </form>
-        </div>
-        <br><br>
-        <a href="<%= request.getContextPath()%>" class="enlace">Volver</a>              
+        </div>            
     </body>
 </html>

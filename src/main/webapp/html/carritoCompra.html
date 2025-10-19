@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="es">
+    <head>
+        <title>Carrito compra</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Carrito de la compra</h1>
+        <div class="formulario">
+            <form action="../jsp/carritoCompra.jsp" method="post">
+                <h4>Entrada de datos</h4>
+                <table>
+                    <tr>
+                        <td>Precio del producto:</td>
+                        <td><input type="number" step="0.01" name="precio"></td>                    
+                    </tr>
+                    <tr>
+                        <td>Entregado:</td>
+                        <td><input type="number" step="0.01" name="entregado"></td>
+                    </tr>
+                </table>
+                <input type="submit" class="botonEnviar" name="gestionarVuelta" value="Gestionar vuelta">
+                <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='../index.html'">
+            </form>
+        </div>
+    </body>
+</html>

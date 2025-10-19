@@ -12,90 +12,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     /*outline: 1px solid red;*/
     margin: 0px;
     padding: 0px;
-    color: white;
-}
-
-header {
-    text-align: left;
-    padding: 20px;
 }
 
 
 
 body {
-    background-color:#4a3da5;
-    margin: 0;
-    padding: 60px;
-    height: 100vh;
+    background-color: #4a3da5;
+    height: 100vh; /* toda la altura visible */
+    display: flex; /* activa el modo flex */
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalmente */
+    flex-direction: column; /* apila el contenido en columna */
+    text-align: center; /* centra el texto dentro */
 }
 
 h1 {
+    color: white;
     margin-bottom: 10px;
 }
 
-
-.contenedor {
-    display: flex;
-    gap: 40px;
-    justify-content: center; /* Centrado horizontal */
-    align-items: start;     /* Centrado vertical */
+h4, h2, h5 {
+    color:#4a3da5;
+    font-weight: semibold;
 }
 
-/* Cada columna */
-.columna {
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    width: 500px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+p {
+    color:white;
 }
 
-.columna h2 {
-    color:black;
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-/* Cada tarjeta */
-.columna .tarjeta {
-    display: block; /* Para que ocupe toda la caja */
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
-    text-decoration: none;
-    color: black;
-}
-
-#columna1 .tarjeta {
-    background: #e9b7ff;
-}
-
-#columna2 .tarjeta {
-    background: #b9d440;
-}
-
-
-.enlace:hover {
-    color: #e9b7ff;
-}
-
-.tarjeta:hover {
-    transform: scale(1.02);
-}
-
-summary {
-    cursor: pointer;
-}
-
-details .desplegable {
-    margin: 5px 30px 5px 30px;
-}
-
-ul.desplegable li {
-    color:black;
+li {
+    color: white;
 }
 
 .enlace {
@@ -108,20 +54,32 @@ ul.desplegable li {
 
 .formulario {
     display: flex;
+    background-color: white;
     flex-direction: column;
     width: fit-content;
-    border: #e9b7ff solid 2px;
+/*    border: #e9b7ff solid 2px;*/
     border-radius: 5px;
     align-items: center;
     justify-content: center;
     padding: 30px;
+    margin: 0 auto; 
+    color: black;
     
 }
 
 .formulario input {
     color: black;
+    border: solid 1.5px;
     border-radius: 8px;
-    margin: 5px 5px 10px 5px;
+    margin: 10px 10px 10px 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+.formulario td,
+.formulario label,
+.formulario p {
+    color: black;
+    margin: 10px 10px 10px 5px;
     padding: 5px 10px 5px 10px;
 }
 
@@ -133,7 +91,8 @@ option {
     border: 2px solid red;
 }
 
-.botonEnviar {
+.botonEnviar, 
+.formulario input.botonEnviar {
     background-color:#b9d440;
     color:black;
     border: none;
@@ -149,44 +108,78 @@ option {
     transform: scale(1.02);
 }
 
-.alerta {
-    background:mistyrose;
-    color: red;
-    border-radius: 5px;
-    font-weight: bold;
-    padding: 5px;
-    margin: 10px;
+.formulario input.botonVolver {
+    background-color:#e9b7ff;
+    color:black;
+    border: none;
+    width:max-content;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+    margin: 10px 0px 10px 0px;
 }
 
-footer {
-    text-align: center;
-    color: white;
-    font-weight: 200;
-    padding: 60px;
+.botonVolver:hover {
+    transform: scale(1.02);
 }
+
+.formulario input.botonEliminar {
+    background-color:red;
+    color:white;
+    border: none;
+    width:max-content;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+    margin: 10px 0px 10px 0px;
+}
+
+.botonEliminar:hover {
+    transform: scale(1.02);
+}
+
+
 
 #tablaNumSecreto {
     width: 70%;
     margin: 5%;
     text-align: center;
-    background:#e9b7ff;
-    border-radius: 10px;
+    background:white;
+    border-radius: 5px;
     overflow: hidden;
-    border-collapse: collapse; /* mantener colapsado */
-    border: 2px solid #4a3da5; /* un solo borde visible */
+    border-collapse: separate; /* separar celdas y borde exterior */
+    border-spacing: 0; /* sin espacio extra */
+    border: 1px solid #4a3da5; /* un solo borde visible */
     color:#4a3da5;
 }
 #tablaNumSecreto th {
-    background: white;
+    background: #e9b7ff;
     color:#4a3da5;
     font-weight: bold;
     padding: 10px;
+    border: 1px solid #4a3da5;
     
 }
 #tablaNumSecreto td {
     color: black;
     padding: 10px;
-    border: 2px solid #4a3da5; /* un solo borde visible */
+    border: 1px solid #4a3da5; /* un solo borde visible */
+}
+
+.formulario .alerta {
+    color: red;
+    padding: 5px;
+    margin: 10px;
+}
+
+.alerta {
+    color:red;
+    background-color: white;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 

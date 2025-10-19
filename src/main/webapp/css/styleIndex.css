@@ -1,0 +1,113 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 28 sept 2025, 13:15:41
+    Author     : gloriajean
+*/
+
+* {
+    font-family: 'Poppins', sans-serif;
+    /*outline: 1px solid red;*/
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+header {
+    text-align: left;
+    padding: 20px;
+}
+
+
+
+body {
+    background-color:#4a3da5;
+    margin: 0;
+    padding: 60px;
+    height: 100vh;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+
+.contenedor {
+    display: flex;
+    gap: 40px;
+    justify-content: center; /* Centrado horizontal */
+    align-items: start;     /* Centrado vertical */
+}
+
+/* Cada columna */
+.columna {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.columna h2 {
+    color:black;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Cada tarjeta */
+.columna .tarjeta {
+    display: block; /* Para que ocupe toda la caja */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: black;
+}
+
+#columna1 .tarjeta {
+    background: #e9b7ff;
+}
+
+#columna2 .tarjeta {
+    background: #b9d440;
+}
+
+
+.enlace:hover {
+    color: #e9b7ff;
+}
+
+.tarjeta:hover {
+    transform: scale(1.02);
+}
+
+summary {
+    cursor: pointer;
+}
+
+details .desplegable {
+    margin: 5px 30px 5px 30px;
+}
+
+ul.desplegable li {
+    color:black;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    padding: 60px;
+}
+
+.enlace {
+    color:red;
+    font-weight: 200;
+    text-decoration: none;
+    display: inline-block;
+}

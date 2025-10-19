@@ -66,7 +66,7 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/css/style.css">
     </head>
     <body>
-        <h1>Contador de visitas 🍪</h1>
+        <h1>Contador de visitas</h1>
         
         <div class=formulario>
 <%   
@@ -86,19 +86,19 @@
             response.addCookie(cookie);           
         }
          %>
-            <h4><%=mensaje%></h4><br>
-            <h2>Informaci&oacute;n de la cookie</h2><br>
-            <p>Caducidad: <%=cookie.getMaxAge()%></p><br>
-            <p>Nombre: <%=cookie.getName()%></p><br>
-            <p>Segura: <%=cookie.getSecure()%></p><br>
-            <p>Versi&oacute;n: <%=cookie.getVersion()%></p><br>
+            <h4><%=mensaje%></h4>
+            <h2>Informaci&oacute;n de la cookie</h2>
+            <p>Caducidad: <%=cookie.getMaxAge()%></p>
+            <p>Nombre: <%=cookie.getName()%></p>
+            <p>Segura: <%=cookie.getSecure()%></p>
+            <p>Versi&oacute;n: <%=cookie.getVersion()%></p>
         <%
     }
         %>
         <form action="contadorVisitas.jsp" method="post">
             <input type="submit" class="botonEnviar" name="Recargar" value="Recargar">
-            <input type="submit" class="botonEnviar" name="Eliminar" value="Eliminar">
-            <input type="button" class="botonEnviar" name="Volver" value="Inicio" onclick="window.location.href='<%= request.getContextPath() %>'">
+            <input type="submit" class="botonEliminar" name="Eliminar" value="Eliminar">
+            <input type="button" class="botonVolver" name="volver" value="Volver al inicio" onclick="window.location.href='<%=request.getContextPath()%>'">
         </form>
         </div>
 </body>

@@ -59,7 +59,7 @@ public class FormularioSimple extends HttpServlet {
             
             //Extraer datos nombre
             String valorNombre = request.getParameter("nombre");
-            out.println("<h2>Nombre</h2>");
+            out.println("<p><strong>Nombre<strong></p>");
             out.println("<p>" + valorNombre + "</p><br>");
             
             //Extraer datos fecha
@@ -68,7 +68,7 @@ public class FormularioSimple extends HttpServlet {
             LocalDate fecha = LocalDate.parse(valorFechaNac);
             DateTimeFormatter fechaFormateada = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String nuevaFecha = fecha.format(fechaFormateada);
-            out.println("<h2>Fecha de nacimiento</h2>");
+            out.println("<p><strong>Fecha de nacimiento</strong></p>");
             out.println("<p>" + nuevaFecha + "</p><br>");
             
             //El salario solo se imprime si es más de 0
@@ -78,7 +78,7 @@ public class FormularioSimple extends HttpServlet {
             if (valorSalario != null){
                float floatSalario = Float.parseFloat(valorSalario);
                 if (floatSalario > 0) {
-                   out.println("<h2>Salario</h2>");
+                   out.println("<p><strong>Salario</strong></p>");
                    out.println("<p>" + floatSalario + "€</p><br>");  
                 }
             }
@@ -88,7 +88,7 @@ public class FormularioSimple extends HttpServlet {
             if (valorHijos != null){
                int numHijos = Integer.parseInt(valorHijos);
                 if (numHijos > 0) {
-                   out.println("<h2>Hijos</h2>");
+                   out.println("<p><strong>Hijos</strong></p>");
                    out.println("<p>" + numHijos + "</p><br>");  
                 }
             }
@@ -96,7 +96,7 @@ public class FormularioSimple extends HttpServlet {
             //Las preferencias solo se imprimen si hay alguna seleccionada
             String[] preferencias = request.getParameterValues("preferencias");
             if (preferencias != null && preferencias.length > 0) {
-                out.println("<h2>Preferencias</h2>");
+                out.println("<p><strong>Preferencias</strong></p>");
                 out.println("<ul>");
                 for (String preferencia : preferencias) {
                     out.println("<li>" + preferencia + "</li>");

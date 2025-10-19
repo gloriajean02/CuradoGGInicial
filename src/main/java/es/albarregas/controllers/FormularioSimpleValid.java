@@ -80,9 +80,10 @@ public class FormularioSimpleValid extends HttpServlet {
             //Si el ArrayList nulos NO está vacío, pedimos rellenar estos campos vacíos y además recordaremos los llenos
             if (!nulos.isEmpty()) {
                 //Lanzamos alerta de campos obligatorios
-                out.println("<p class=\"alerta\">Los campos son obligatorios</p>");
                 out.println("<div class=\"formulario\">");
+                out.println("<p class=\"alerta\">Los campos son obligatorios</p><br>");
                 out.println("<form action=\"FormularioSimpleValid\" method=\"post\">");
+                out.println("<table>");
 
                 while (nombresParametros.hasMoreElements()) {
                     String parametro = nombresParametros.nextElement();
@@ -92,42 +93,50 @@ public class FormularioSimpleValid extends HttpServlet {
                     //En cada caso comprobamos si está vacío o no e imprimimos en consecuencia
                     switch (parametro) {
                         case "Nombre":
-                            out.println("<label for=\"nb\">Nombre</label><br>");
+                            out.println("<tr>");
+                            out.println("<td><label for=\"nb\">Nombre</label></td>");
                             if (vacio) {
                                 //Si está vacio imprime campo vacío y con bordes rojos
-                                out.println("<input class=\"vacio\" type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\"><br>");
+                                out.println("<td><input class=\"vacio\" type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\"></td>");
                             } else {
                                 //Si está lleno recuerda el valor con "value="valor""
-                                out.println("<input type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""
-                                        + valor + "\"><br>");
+                                out.println("<td><input type=\"text\" name=\"Nombre\" id=\"nb\" placeholder=\"Ej. Juan\" value=\""
+                                        + valor + "\"></td>");
                             }
+                            out.println("</tr>");
                             break;
                         case "Fecha_de_nacimiento":
-                            out.println("<label for=\"dt\">Fecha de nacimiento</label><br>");
+                            out.println("<tr>");
+                            out.println("<td><label for=\"dt\">Fecha de nacimiento</label></td>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\"><br>");
+                                out.println("<td><input class=\"vacio\" type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\"></td>");
                             } else {
-                                out.println("<input type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\" value=\""
-                                        + valor + "\"><br>");
+                                out.println("<td><input type=\"date\" name=\"Fecha_de_nacimiento\" id=\"dt\" value=\""
+                                        + valor + "\"></td>");
                             }
+                            out.println("</tr>");
                             break;
                         case "Salario":
-                            out.println("<label for=\"sal\">Salario</label><br>");
+                            out.println("<tr>");
+                            out.println("<td><label for=\"sal\">Salario</label></td>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\"><br>");
+                                out.println("<td><input class=\"vacio\" type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\"></td>");
                             } else {
-                                out.println("<input type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\" value=\""
-                                        + valor + "\"><br>");
+                                out.println("<td><input type=\"number\" name=\"Salario\" step=\"0.01\" id=\"sal\" value=\""
+                                        + valor + "\"></td>");
                             }
+                            out.println("</tr>");
                             break;
                         case "Hijos":
-                            out.println("<label for=\"hj\">Hijos</label><br>");
+                            out.println("<tr>");
+                            out.println("<td><label for=\"hj\">Hijos</label></td>");
                             if (vacio) {
-                                out.println("<input class=\"vacio\" type=\"number\" name=\"Hijos\" id=\"hj\"><br>");
+                                out.println("<td><input class=\"vacio\" type=\"number\" name=\"Hijos\" id=\"hj\"></td>");
                             } else {
-                                out.println("<input type=\"number\" name=\"Hijos\" id=\"hj\" value=\""
-                                        + valor + "\"><br>");
+                                out.println("<td><input type=\"number\" name=\"Hijos\" id=\"hj\" value=\""
+                                        + valor + "\"></td>");
                             }
+                            out.println("</tr>");
                             break;
                     }
 
@@ -135,8 +144,9 @@ public class FormularioSimpleValid extends HttpServlet {
 
                 //Las preferencias no se guardan, las imprimimos como siempre
                 out.println(pintarPreferencias());
-
+                out.println("</table>");
                 out.println("<input class=\"botonEnviar\" type=\"submit\">");
+                out.println("<input type=\"button\" class=\"botonVolver\" name=\"volver\" value=\"Volver al inicio\" onclick=\"window.location.href='index.html'\">");
                 out.println("</form>");
                 out.println("</div>");
                 out.println("<br>");
@@ -151,7 +161,7 @@ public class FormularioSimpleValid extends HttpServlet {
                     //Se hace distinción para las preferencias porque si no hay no se imprimen
                     if (parametro.equals("Preferencias")) {
                         if (valores != null && valores.length > 0) {
-                            out.println("<h2>Preferencias</h2>");
+                            out.println("<p>Preferencias</p>");
                             out.println("<ul>");
                             for (String valor : valores) {
                                 out.println("<li>" + valor + "</li>");
@@ -161,20 +171,22 @@ public class FormularioSimpleValid extends HttpServlet {
                     } else if (parametro.equals("Fecha_de_nacimiento")) {
                         // Si es fecha, la formateamos
                         String nombreParametro = parametro.replace('_', ' ');
-                        out.println("<h2>" + nombreParametro + "</h2>");
+                        out.println("<p>" + nombreParametro + "</p>");
                         LocalDate fecha = LocalDate.parse(valores[0]);
                         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         out.println("<p>" + fecha.format(formato) + "</p><br>");
                     } else {
                         //Impresión de los demás campos
-                        out.println("<h2>" + parametro + "</h2>");
+                        out.println("<p>" + parametro + "</p>");
                         out.println("<p>" + valores[0] + "</p><br>");
                     }
-
+                    
                 }
+                out.println(pintarFinalHTML("index.html"));
             }
+            
 
-            out.println(pintarFinalHTML("index.html"));
+            
         }
     }
 
@@ -190,13 +202,13 @@ public class FormularioSimpleValid extends HttpServlet {
     }
 
     private String pintarPreferencias() {
-        return "<label for=\"preferencias\">Preferencias</label><br>\n"
-                + "<select name=\"Preferencias\" id=\"preferencias\" multiple>\n"
+        return "<tr>\n<td><label for=\"preferencias\">Preferencias</label></td>\n"
+                + "<td><select name=\"Preferencias\" id=\"preferencias\" multiple>\n"
                 + "<option value=\"Leer\">Leer</option>\n"
                 + "<option value=\"Nadar\">Nadar</option>\n"
                 + "<option value=\"Dormir\">Dormir</option>\n"
                 + "<option value=\"Bailar\">Bailar</option>\n"
-                + "</select><br>\n";
+                + "</select></td>\n</tr>\n";
     }
 
     /**
