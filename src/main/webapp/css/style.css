@@ -108,6 +108,7 @@ option {
     transform: scale(1.02);
 }
 
+.botonVolver,
 .formulario input.botonVolver {
     background-color:#e9b7ff;
     color:black;
@@ -171,7 +172,6 @@ option {
 .formulario .alerta {
     color: red;
     padding: 5px;
-    margin: 10px;
 }
 
 .alerta {
@@ -182,5 +182,16 @@ option {
     border-radius: 5px;
 }
 
+#tablaGestorVuelta th, #tablaGestorVuelta td {
+    padding: 10px; /* Espacio dentro de cada celda */
+}
+
+/*Div para los botones del gestor de vuelta de carritoCompra.jsp*/
+#divBotones {
+    display: flex;            /* Coloca los hijos en línea horizontal */
+    gap: 10px;                /* Espacio entre los botones */
+    justify-content: center;  /* Centra los botones horizontalmente dentro del div */
+    margin-top: 20px;         
+}
 
 
