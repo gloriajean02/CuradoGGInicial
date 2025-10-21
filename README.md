@@ -23,5 +23,7 @@ Se han realizado los siguientes desarrollos:
 - **Edad**: implementación de un formulario que obtiene por parámetros un nombre y una fecha de nacimiento para calcular cuánto tiempo falta para tu cumpleaños.
 - **Calculadora**: calculadora básica con suma, resta, multiplicación y división que imprime el resultado junto a la fecha de hoy. Además controla divisiones por cero y errores NaN.
 - **Juego del número secreto**: juego en JSP donde el usuario debe adivinar un número aleatorio entre 1 y 100, mostrando en cada intento si es mayor o menor y acumulando los intentos en una tabla hasta acertar.
+- **Contador de visitas**: aplicación que cuenta el número de visitas a la página por medio de cookies. Estas cookies se pueden recargar o eliminar.
+- **Carrito de la compra**: proyecto JSP/HTML que permite al usuario introducir el precio de un producto y la cantidad entregada. La aplicación calcula automáticamente la vuelta a devolver usando billetes y monedas, mostrando imágenes de cada moneda/billete junto con la cantidad correspondiente. Incluye validación de datos para asegurar que el precio y el entregado sean correctos, y vuelve a mostrar el formulario si hay errores.
 
 
