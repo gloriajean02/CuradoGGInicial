@@ -4,6 +4,8 @@
     Author     : gloriajean
 --%>
 
+<%@page import="java.text.NumberFormat"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -129,15 +131,8 @@
             if (vuelta > 0){
                 //Detectamos si la moneda contiene el número 5
                 String monedaSTR = String.valueOf(moneda);
-                boolean cinco = false;
-                for (int i = 0; i < monedaSTR.length() && !cinco; i++) {
-                    if (monedaSTR.charAt(i) == '5') {
-                        cinco = true;
-                    }
-                }
-
                 //Si tiene 5 la dividimos entre 2.5 para pasar a la siguiente más pequeña, si no, entre 2
-                if (cinco) {
+                if (monedaSTR.contains("5")) {
                     moneda = moneda / 2.5; 
                 } else {
                     moneda = moneda / 2; 
@@ -174,8 +169,12 @@
             </table>
             <%
                 }
+
+                String currencyVuelta = NumberFormat.getCurrencyInstance().format(vueltaImprimir);
             %>
-            <p>Total a devolver: <%= vueltaImprimir %>€</p>
+           
+            
+            <p>Total a devolver: <%= currencyVuelta %></p>
             <div id="divBotones">
                 <button class="botonVolver" onclick="window.location.href='<%= request.getContextPath() %>'">
                     Volver al inicio
