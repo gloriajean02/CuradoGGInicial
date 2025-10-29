@@ -44,5 +44,8 @@
                 %>
             </form>
         </div>
+        <section class="contenedorSeccion" id="atributoSesion">
+            <h3></h3>
+        </section>
     </body>
 </html>

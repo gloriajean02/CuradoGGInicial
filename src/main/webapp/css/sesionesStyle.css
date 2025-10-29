@@ -1,0 +1,97 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29 oct 2025, 19:17:38
+    Author     : gloriajean
+*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+} 
+
+body {
+    margin: 70px 30px;
+    background-color:#4a3da5;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width:fit-content;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contenedor {
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+td {
+    padding:5px;
+}
+
+.boton {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color:white;
+}
+
+.boton:hover {
+    transform: scale(1.02);
+}
+
+#botonVerde {background-color:forestgreen;}
+#botonAzul {background-color:cornflowerblue;}
+#botonLila {background-color:#4a3da5;}
+#botonRojo {background-color:crimson;}
+
+#accionesEliminar {
+    text-align: center;
+    border: solid orangered 5px;
+    background-color:moccasin;
+}
+
+#accionesEliminar>.contenedor {
+    justify-content: center;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-weight: 200;
+    padding: 60px;
+}
+
+.alerta {
+   color: crimson;
+   font-weight: 300;
+}
+
+.advertencia {
+   color: orangered;
+   font-weight: 300;
+}
+
+.exito {
+   color: forestgreen;
+   font-weight: 300;
+}
