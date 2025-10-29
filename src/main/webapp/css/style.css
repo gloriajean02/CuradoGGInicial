@@ -141,6 +141,22 @@ option {
     transform: scale(1.02);
 }
 
+.formulario input.botonActualizar {
+    background-color: cornflowerblue;
+    color:white;
+    border: none;
+    width:max-content;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+    margin: 10px 0px 10px 0px;
+}
+
+.botonActualizar:hover {
+    transform: scale(1.02);
+}
+
 
 
 #tablaNumSecreto {
