@@ -14,8 +14,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 } 
 
 body {
-    margin: 70px 30px;
+    padding: 60px;
     background-color:#4a3da5;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 h1 {
@@ -78,7 +81,7 @@ footer {
     text-align: center;
     color: white;
     font-weight: 200;
-    padding: 60px;
+    padding: 10px;
 }
 
 .alerta {
