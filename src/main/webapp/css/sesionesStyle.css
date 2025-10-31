@@ -47,6 +47,10 @@ section {
     gap: 10px;
 }
 
+.contenedor ul {
+    margin: 0 auto;
+}
+
 td {
     padding:5px;
 }
@@ -66,6 +70,7 @@ td {
 #botonAzul {background-color:cornflowerblue;}
 #botonLila {background-color:#4a3da5;}
 #botonRojo {background-color:crimson;}
+#botonGris {background-color:#666;}
 
 #accionesEliminar {
     text-align: center;
@@ -97,4 +102,10 @@ footer {
 .exito {
    color: forestgreen;
    font-weight: 300;
+}
+
+input[type="submit"]:disabled {
+    background-color: #ccc !important;
+    color: #666;
+    cursor: not-allowed;
 }
