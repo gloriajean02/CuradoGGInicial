@@ -1,0 +1,60 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package es.albarregas.filters;
+
+import java.io.IOException;
+import java.util.Calendar;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+/**
+ * Filtra las paginas para que los carácteres especiales se muestren correctamente
+ * @author jesus
+ */
+@WebFilter(filterName = "Auditoria", urlPatterns = {"/*"})
+public class Auditoria implements Filter {
+
+    /**
+     *
+     * @param fConfig Parámetro inicial
+     * @throws ServletException Excepción
+     */
+    @Override
+    public void init(FilterConfig fConfig) throws ServletException {
+    }
+
+    /**
+     *
+     * @param request Petición
+     * @param response Respuesta
+     * @param chain Cambio
+     * @throws IOException Excepción de entrada/salida
+     * @throws ServletException Excepción
+     */
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        
+        long antes = System.currentTimeMillis();
+        chain.doFilter(request, response);
+        long despues = System.currentTimeMillis();
+        long total = despues - antes;
+        System.out.println("Tiempo de espera "+total+" milisegundos.");
+        
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void destroy() {
+    }
+}
