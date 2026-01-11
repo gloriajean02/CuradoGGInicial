@@ -16,6 +16,10 @@ Se han realizado los siguientes desarrollos:
 - **Formulario Simple**: creación de un formulario HTML y envío de datos a un servlet.  
 - **Formulario Simple con Validaciones**: implementación de comprobaciones básicas para asegurar que los campos requeridos no estén vacíos.  
 - **Formulario Simple con Validaciones y Pantalla Intermedia**: mejora del formulario para mostrar una pantalla intermedia cuando hay errores, permitiendo al usuario corregir los datos antes de enviarlos definitivamente.
+- **Filtro y Prueba validación filtro**: Prueba de filtro UTF-8 que resuelve los errores causados por caracteres especiales como tildes.
+- **Cartas**: Prueba de carga, modificación y eliminación de un atributo de aplicación "cartas" por medio de eventos en el controlador ListenerList.
+- **Login**: Prueba de login y logout por medio de un atributo de sesión, cualquiera de las dos acciones genera eventos en la ListenerList que podemos ver por consola.
+
 
 ### Fase 2: Java Server Pages 
 Se han realizado los siguientes desarrollos:
@@ -28,5 +32,6 @@ Se han realizado los siguientes desarrollos:
       - **Contador de visitas por Sesiones**: aplicación que cuenta el número de visitas a la página por medio de sesiones. Estas cookies se pueden recargar o eliminar.
 - **Carrito de la compra**: proyecto JSP/HTML que permite al usuario introducir el precio de un producto y la cantidad entregada. La aplicación calcula automáticamente la vuelta a devolver usando billetes y monedas, mostrando imágenes de cada moneda/billete junto con la cantidad correspondiente. Incluye validación de datos para asegurar que el precio y el entregado sean correctos, y vuelve a mostrar el formulario si hay errores.
 - **Recordar usuario**: formulario que recuerda el usuario siempre que se seleccione el checkbox "Recordar usuario". Este proceso se realiza mediante cookies.
+- **Gestión de sesiones**: formulario que permite crear, eliminar o modificar uno o varios atributos de sesión.
 
 
