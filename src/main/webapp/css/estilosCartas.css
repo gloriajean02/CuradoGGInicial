@@ -65,6 +65,13 @@ a.button.disabled:hover {
     flex-wrap: wrap; /* Permite que los hijos pasen a la siguiente línea */
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que los hijos pasen a la siguiente línea */
+}
+
 /* Zona de cartas y mazo: ocupan todo el ancho disponible */
 .cartas,
 .mazo {

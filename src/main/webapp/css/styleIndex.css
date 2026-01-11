@@ -77,6 +77,14 @@ h1 {
     background: #b9d440;
 }
 
+input {
+    width: 100%;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 
 .enlace:hover {
     color: #e9b7ff;

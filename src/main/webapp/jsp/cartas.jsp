@@ -26,8 +26,13 @@
                             <p>Rareza: ${carta.rareza}</p>
                         </div>
                     </c:forEach>
+                    
 
                 </div>
+            </form>
+            <form action="${contexto}/EliminarCartasController" method="post">
+                <input type="submit" name="accion" value="Eliminar cartas">
+                <input type="submit" name="accion" value="Volver al inicio">
             </form>
         </section>
     </main>
